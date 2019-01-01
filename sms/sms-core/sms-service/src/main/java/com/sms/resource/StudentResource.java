@@ -1,11 +1,9 @@
 package com.sms.resource;
 
 import com.sms.model.Marks;
-import com.sms.model.Semester;
 import com.sms.model.Student;
 import com.sms.service.StudentService;
 import io.swagger.annotations.Api;
-import io.swagger.annotations.Authorization;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.bind.annotation.*;
