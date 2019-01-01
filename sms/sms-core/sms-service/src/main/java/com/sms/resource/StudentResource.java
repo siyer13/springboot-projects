@@ -39,6 +39,12 @@ public class StudentResource implements StudentService {
         subjectScore.put("DBMS",75);
         subjectScore.put("Java",79);
         semScore.put("SECONDYEAR_FIRSTSEM",subjectScore);
+        marks.setSemesterSubjectScore(semScore);
+        subjectScore = new HashMap<>();
+        subjectScore.put("C++",70);
+        subjectScore.put("Software Engineering",75);
+        subjectScore.put("Networks",79);
+        semScore.put("SECONDYEAR_SECONDSEM",subjectScore);
         student.setFirstName("Sridhar");
         student.setLastName("Iyer");
         student.setStudentId("084-06-010");
