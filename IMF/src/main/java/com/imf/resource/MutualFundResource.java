@@ -36,13 +36,10 @@ public class MutualFundResource implements MutualFundService {
 		List<Map<String, List<MutualFund>>> fundsBySchemeType = new ArrayList<>();;
 		List<MutualFund> fundList ;
 		mutualFundList = fundMapper.getFundsBySchemeType(schemeType);
-		System.out.println(mutualFundList);
 		for(MutualFund entry : mutualFundList) {
 			fundList = null;
 			if(fundMap.containsKey(entry.getFundName())) {
 				fundList = fundMap.get(entry.getFundName());
-				System.out.println("Second or More.................");
-				System.out.println(fundList);
 				mf = new MutualFund();
 				mf.setSchemeName(entry.getSchemeName());
 				mf.setSchemeCode(entry.getSchemeCode());
@@ -52,8 +49,6 @@ public class MutualFundResource implements MutualFundService {
 				mf.setFundValueAsOfDate(entry.getFundValueAsOfDate());
 				mf.setDataLoadDate(entry.getDataLoadDate());
 				fundList.add(mf);
-				System.out.println("After adding.................");
-				System.out.println(fundList);
 				fundMap.put(entry.getFundName(), fundList);
 			} else {
 				fundList = new ArrayList<>();
@@ -66,13 +61,17 @@ public class MutualFundResource implements MutualFundService {
 				mf.setFundValueAsOfDate(entry.getFundValueAsOfDate());
 				mf.setDataLoadDate(entry.getDataLoadDate());
 				fundList.add(mf);
-				System.out.println("FIrst Entry...........");
-				System.out.println(fundList);
 				fundMap.put(entry.getFundName(), fundList);
 			}
 		}
 		fundsBySchemeType.add(fundMap);
 		return fundsBySchemeType;
+	}
+	
+	@Override
+	@GetMapping("/getFundBySchemeName")
+	public List<MutualFund> getFundBySchemeName(String schemeName) {
+		return fundMapper.getFundBySchemeName(schemeName);
 	}
 		
 }

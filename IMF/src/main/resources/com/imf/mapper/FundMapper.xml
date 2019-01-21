@@ -1,0 +1,18 @@
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+
+<mapper namespace="com.imf.mapper.FundMapper">    
+
+   <resultMap id="FundResultMap" type="MutualFund">
+        <id column="scheme_name" property="schemeName" />
+        <result column="scheme_code" property="schemeCode" />
+        <result column="fund_value_date" property="fundValueAsOfDate" />
+    </resultMap>
+    
+     <select id="getFundsByName" resultMap="FundResultMap">
+        select scheme_name, scheme_code, fund_value_date from scheme
+    </select>
+    
+    </mapper>

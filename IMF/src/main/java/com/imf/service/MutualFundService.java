@@ -10,5 +10,7 @@ public interface MutualFundService {
 	public List<?> getFundsByName(String fundName);
 	
 	public List<Map<String, List<MutualFund>>> getFundsBySchemeType(String schemeType);
+	
+	public List<?> getFundBySchemeName(String schemeName);
 
 }
