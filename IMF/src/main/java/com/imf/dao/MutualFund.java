@@ -1,7 +1,13 @@
 package com.imf.dao;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
+@JsonInclude(Include.NON_NULL)
 public class MutualFund {
 
+	private String fundName;
+	private String schemeType;
 	private String schemeName;
 	private String schemeCode;
 	private String isinDivPayout;
@@ -52,11 +58,24 @@ public class MutualFund {
 	public void setDataLoadDate(String dataLoadDate) {
 		this.dataLoadDate = dataLoadDate;
 	}
+	public String getFundName() {
+		return fundName;
+	}
+	public void setFundName(String fundName) {
+		this.fundName = fundName;
+	}
+	public String getSchemeType() {
+		return schemeType;
+	}
+	public void setSchemeType(String schemeType) {
+		this.schemeType = schemeType;
+	}
 	@Override
 	public String toString() {
-		return "MutualFund [schemeName=" + schemeName + ", schemeCode=" + schemeCode + ", isinDivPayout="
-				+ isinDivPayout + ", isinDivReinvestment=" + isinDivReinvestment + ", netAssetValue=" + netAssetValue
-				+ ", fundValueAsOfDate=" + fundValueAsOfDate + ", dataLoadDate=" + dataLoadDate + "]";
+		return "MutualFund [fundName=" + fundName + ", schemeType=" + schemeType + ", schemeName=" + schemeName
+				+ ", schemeCode=" + schemeCode + ", isinDivPayout=" + isinDivPayout + ", isinDivReinvestment="
+				+ isinDivReinvestment + ", netAssetValue=" + netAssetValue + ", fundValueAsOfDate=" + fundValueAsOfDate
+				+ ", dataLoadDate=" + dataLoadDate + "]";
 	}
 	
 }
