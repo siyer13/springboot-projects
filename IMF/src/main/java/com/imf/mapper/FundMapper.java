@@ -30,7 +30,7 @@ public interface FundMapper {
     })
 	List<MutualFund> getFundsBySchemeType(@Param("schemeType") String schemeType);
 	
-	@Select("select scheme_code, isin_div_payout, isin_div_reinvestment, net_asset_value, fund_value_date, load_date  from scheme where scheme_name = #{schemeName}")
+	@Select("SELECT scheme_code, isin_div_payout, isin_div_reinvestment, net_asset_value, fund_value_date, load_date  FROM scheme WHERE scheme_name = #{schemeName} AND load_date = (SELECT MAX(load_date) FROM scheme)")
     @Results(value = {
             @Result(property = "schemeCode", column = "scheme_code"),
             @Result(property = "isinDivPayout", column = "isin_div_payout"),
