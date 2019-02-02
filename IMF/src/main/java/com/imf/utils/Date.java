@@ -4,6 +4,9 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Calendar;
 
+import org.springframework.context.annotation.Bean;
+
+
 public class Date {
 	
 	public String getDDMMMYYYYFormat() {
@@ -11,6 +14,7 @@ public class Date {
 		SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy"); 
 		return formatter.format(calendar.getTime());
 	}
+	
 	public String getCurrentDate() {
 		LocalDate localDate = LocalDate.now();
 		return localDate.toString();
